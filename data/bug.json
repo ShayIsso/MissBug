@@ -1,0 +1,71 @@
+[
+    {
+        "_id": "BpQqc",
+        "title": "Cannot load screen",
+        "severity": 4,
+        "createdAt": 1742503711813
+    },
+    {
+        "_id": "abc123",
+        "title": "Cannot save a new car",
+        "description": "problem when clicking Save",
+        "severity": 3,
+        "createdAt": 1542107359454
+    },
+    {
+        "_id": "def456",
+        "title": "Login button not responsive",
+        "description": "Clicking the login button does nothing",
+        "severity": 2,
+        "createdAt": 1542110000000
+    },
+    {
+        "_id": "ghi789",
+        "title": "Error 500 when submitting form",
+        "description": "Server returns a 500 error on form submission",
+        "severity": 1,
+        "createdAt": 1542123456789
+    },
+    {
+        "_id": "jkl012",
+        "title": "Broken image links on homepage",
+        "description": "Some images on the homepage are not loading",
+        "severity": 3,
+        "createdAt": 1542131111111
+    },
+    {
+        "_id": "mno345",
+        "title": "Search function returns incorrect results",
+        "description": "Search results do not match the entered keywords",
+        "severity": 2,
+        "createdAt": 1542142222222
+    },
+    {
+        "_id": "pqr678",
+        "title": "Text overlaps on mobile view",
+        "description": "Text is not properly aligned on smaller screens",
+        "severity": 4,
+        "createdAt": 1542153333333
+    },
+    {
+        "_id": "stu901",
+        "title": "Password reset email not sent",
+        "description": "Users do not receive the password reset email",
+        "severity": 1,
+        "createdAt": 1542164444444
+    },
+    {
+        "_id": "vwx234",
+        "title": "App crashes on startup",
+        "description": "Application does not load and crashes immediately",
+        "severity": 1,
+        "createdAt": 1542175555555
+    },
+    {
+        "_id": "yz567",
+        "title": "Slow loading time on dashboard",
+        "description": "Dashboard takes too long to load data",
+        "severity": 3,
+        "createdAt": 1542186666666
+    }
+]
