@@ -1,8 +1,9 @@
 import express from 'express'
 import { bugService } from './services/bug.service.js'
 import { loggerService } from './services/logger.service.js'
-
 const app = express()
+
+app.use(express.static('public'))
 
 // Read
 app.get('/api/bug', (req, res) => {
@@ -19,7 +20,8 @@ app.get('/api/bug/save', (req, res) => {
     const bugToSave = {
         _id: req.query._id,
         title: req.query.title,
-        severity: +req.query.severity
+        severity: +req.query.severity,
+        description: req.query.description
     }
 
     bugService.save(bugToSave)

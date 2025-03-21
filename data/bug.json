@@ -1,16 +1,10 @@
 [
     {
-        "_id": "BpQqc",
-        "title": "Cannot load screen",
-        "severity": 4,
-        "createdAt": 1742503711813
-    },
-    {
-        "_id": "abc123",
-        "title": "Cannot save a new car",
-        "description": "problem when clicking Save",
+        "_id": "EJyfl",
+        "title": "Cannot save new car",
         "severity": 3,
-        "createdAt": 1542107359454
+        "description": "",
+        "createdAt": 1742546474338
     },
     {
         "_id": "def456",
@@ -60,12 +54,5 @@
         "description": "Application does not load and crashes immediately",
         "severity": 1,
         "createdAt": 1542175555555
-    },
-    {
-        "_id": "yz567",
-        "title": "Slow loading time on dashboard",
-        "description": "Dashboard takes too long to load data",
-        "severity": 3,
-        "createdAt": 1542186666666
     }
 ]
