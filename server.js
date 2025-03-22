@@ -9,7 +9,10 @@ app.use(cookieParser())
 
 // Read
 app.get('/api/bug', (req, res) => {
-    bugService.query()
+    const { txt = '', minSeverity = 0 } = req.query
+    const filterBy = { txt, minSeverity: +minSeverity }
+
+    bugService.query(filterBy)
         .then(bugs => res.send(bugs))
         .catch(err => {
             loggerService.error('Cannot get bugs', err)
@@ -40,11 +43,11 @@ app.get('/api/bug/:bugId', (req, res) => {
     const { bugId } = req.params
     let visitedBugs = req.cookies.visitedBugs || []
 
-    if (visitedBugs.length >= 3)  return res.status(401).send('Wait for a bit')
+    if (visitedBugs.length >= 3) return res.status(401).send('Wait for a bit')
     if (!visitedBugs.includes(bugId)) visitedBugs.push(bugId)
 
     console.log('User visited at the following bugs:', visitedBugs)
-    res.cookie('visitedBugs', visitedBugs,  { maxAge: 7 * 1000 })
+    res.cookie('visitedBugs', visitedBugs, { maxAge: 7 * 1000 })
     bugService.getById(bugId)
         .then(bug => res.send(bug))
         .catch(err => {
