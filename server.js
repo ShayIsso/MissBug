@@ -6,6 +6,7 @@ const app = express()
 
 app.use(express.static('public'))
 app.use(cookieParser())
+app.use(express.json())
 
 // Read
 app.get('/api/bug', (req, res) => {
@@ -20,23 +21,30 @@ app.get('/api/bug', (req, res) => {
         })
 })
 
-// Create/Edit
-app.get('/api/bug/save', (req, res) => {
-    const { title, description, severity, _id } = req.query
-    const bugToSave = {
-        _id,
-        title,
-        severity: +severity,
-        description
-    }
+// Create
+app.post('/api/bug/', (req, res) => {
+    const bugToSave = req.body
 
     bugService.save(bugToSave)
         .then(bug => res.send(bug))
         .catch(err => {
-            loggerService.error('Cannot save bugs', err)
-            res.status(500).send('Cannot save bug')
+            loggerService.error('Cannot add bugs', err)
+            res.status(500).send('Cannot add bug')
         })
 })
+
+// Update 
+app.put('/api/bug/:bugId', (req, res) => {
+    const bugToSave = req.body
+
+    bugService.save(bugToSave)
+        .then(bug => res.send(bug))
+        .catch(err => {
+            loggerService.error('Cannot update bugs', err)
+            res.status(500).send('Cannot update bug')
+        })
+})
+
 
 // Get/Read by id
 app.get('/api/bug/:bugId', (req, res) => {
@@ -51,14 +59,13 @@ app.get('/api/bug/:bugId', (req, res) => {
     bugService.getById(bugId)
         .then(bug => res.send(bug))
         .catch(err => {
-            // console.log('err', err);            
             loggerService.error('Cannot get bug', err)
             res.status(500).send('Cannot load bug')
         })
 })
 
 //* Remove/Delete
-app.get('/api/bug/:bugId/remove', (req, res) => {
+app.delete('/api/bug/:bugId', (req, res) => {
     const { bugId } = req.params
     bugService.remove(bugId)
         .then(() => res.send('Bug Removed'))
