@@ -10,10 +10,12 @@ app.use(express.json())
 
 // Read
 app.get('/api/bug', (req, res) => {
-    const { txt = '', minSeverity = 0 } = req.query
-    const filterBy = { txt, minSeverity: +minSeverity }
+    const queryOptions = parseQueryParams(req.query)
 
-    bugService.query(filterBy)
+    // const { txt = '', minSeverity = 0, pageIdx } = req.query
+    // const filterBy = { txt, minSeverity: +minSeverity, pageIdx }
+
+    bugService.query(queryOptions)
         .then(bugs => res.send(bugs))
         .catch(err => {
             loggerService.error('Cannot get bugs', err)
@@ -21,12 +23,40 @@ app.get('/api/bug', (req, res) => {
         })
 })
 
+function parseQueryParams(queryParams) {
+    const filterBy = {
+        txt: queryParams.txt || '',
+        minSeverity: +queryParams.minSeverity || 0,
+        labels: queryParams.labels || [],
+    }
+
+    const sortBy = {
+        sortField: queryParams.sortField || '',
+        sortDir: +queryParams.sortDir || 1,
+    }
+
+    const pagination = {
+        pageIdx: queryParams.pageIdx !== undefined ? +queryParams.pageIdx || 0 : queryParams.pageIdx,
+        pageSize: +queryParams.pageSize || 3,
+    }
+
+    return { filterBy, sortBy, pagination }
+}
+
 // Create
 app.post('/api/bug/', (req, res) => {
-    const bugToSave = req.body
+    const { title, description, severity, labels } = req.body
 
-    bugService.save(bugToSave)
-        .then(bug => res.send(bug))
+    if (!title || severity !== undefined) res.status(400).send('Missing required fields')
+
+    const bug = {
+        title,
+        description,
+        severity: +severity || 1,
+        labels: labels || [],
+    }
+    bugService.save(bug)
+        .then(savedBug => res.send(savedBug))
         .catch(err => {
             loggerService.error('Cannot add bugs', err)
             res.status(500).send('Cannot add bug')
@@ -35,10 +65,20 @@ app.post('/api/bug/', (req, res) => {
 
 // Update 
 app.put('/api/bug/:bugId', (req, res) => {
-    const bugToSave = req.body
+    const { title, description, severity, labels, _id } = req.body
 
-    bugService.save(bugToSave)
-        .then(bug => res.send(bug))
+    if (!_id || !title || severity === undefined) return res.status(400).send('Missing required fields')
+
+    const bug = {
+        _id,
+        title,
+        description,
+        severity: +severity,
+        labels: labels || [],
+    }
+
+    bugService.save(bug)
+        .then(savedBug => res.send(savedBug))
         .catch(err => {
             loggerService.error('Cannot update bugs', err)
             res.status(500).send('Cannot update bug')

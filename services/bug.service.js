@@ -10,21 +10,47 @@ export const bugService = {
     save
 }
 
-function query(filterBy) {
-    return Promise.resolve(bugs)
-        .then(bugs => {
-            if (filterBy.txt) {
-                const regExp = new RegExp(filterBy.txt, 'i')
-                bugs = bugs.filter(bug => regExp.test(bug.title))
-            }
+function query(queryOptions) {
+    const { filterBy, sortBy, pagination } = queryOptions
+    var bugsToReturn = [ ...bugs ]
 
-            if (filterBy.minSeverity) {
-                bugs = bugs.filter(bug => bug.severity >= filterBy.minSeverity)
-            }
-            return bugs
+    if (filterBy.txt) {
+        const regExp = new RegExp(filterBy.txt, 'i')
+        bugsToReturn = 
+            bugsToReturn.filter(bug => regExp.test(bug.title))
+    }
 
-        })
+    if (filterBy.minSeverity) {
+        bugsToReturn = 
+            bugsToReturn.filter(bug => bug.severity >= filterBy.minSeverity)
+    }
+
+    if (filterBy.labels && filterBy.labels.length > 0) {
+        bugsToReturn = 
+            bugsToReturn.filter(bug => 
+                filterBy.labels.some(label => bug?.labels?.includes(label)))
+    }
+
+    if (sortBy.sortField === 'severity' || sortBy.sortField === 'createdAt') {
+        const { sortField } = sortBy
+
+        bugsToReturn.sort((bug1, bug2) => 
+            (bug1[sortField] - bug2[sortField]) * sortBy.sortDir)
+    } else if (sortBy.sortField === 'title') {
+        bugsToReturn.sort((bug1, bug2) => 
+            (bug1.title.localeCompare(bug2.title)) * sortBy.sortDir)
+    } 
+
+    if (pagination.pageIdx !== undefined) {
+        const { pageIdx, pageSize} = pagination
+        
+        const startIdx = pageIdx * pageSize
+        bugsToReturn = bugsToReturn.slice(startIdx, startIdx + pageSize)
+    }
+
+    return Promise.resolve(bugsToReturn)
 }
+
 
 function getById(bugId) {
     const bug = bugs.find(bug => bug._id === bugId)
@@ -39,28 +65,28 @@ function remove(bugId) {
     return _saveBugsToFile()
 }
 
-function save(bugToSave) {
-    if (bugToSave._id) {
-        const bugIdx = bugs.findIndex(bug => bug._id === bugToSave._id)
-        bugs[bugIdx].severity = bugToSave.severity
+function save(bug) {
+    if (bug._id) {
+        const idx = bugs.findIndex(currBug => currBug._id === bug._id)
+        bugs[idx] = { ...bugs[idx], ...bug }
     } else {
-        bugToSave._id = utilService.makeId()
-        bugToSave.createdAt = Date.now()
-        bugs.unshift(bugToSave)
+        bug._id = utilService.makeId()
+        bug.createdAt = Date.now()
+        bugs.unshift(bug)
     }
-    return _saveBugsToFile().then(() => bugToSave)
+    return _saveBugsToFile().then(() => bug)
 }
-
-
 
 function _saveBugsToFile() {
     return new Promise((resolve, reject) => {
-        const data = JSON.stringify(bugs, null, 4)
+        const data = JSON.stringify(bugs, null, 2)
         fs.writeFile('data/bug.json', data, (err) => {
             if (err) {
-                return reject(err)
+                loggerService.error('Cannot write to bugs file', err)
+                return reject(err);
             }
+            console.log('The file was saved!');
             resolve()
-        })
+        });
     })
 }

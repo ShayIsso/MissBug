@@ -1,20 +1,16 @@
-import { utilService } from './util.service.js'
-
-const STORAGE_KEY = 'bugs'
 const BASE_URL = '/api/bug/'
-
-_createBugs()
 
 export const bugService = {
     query,
     getById,
     save,
     remove,
+    getLabels,
     getDefaultFilter
 }
 
-function query(filterBy) {
-    return axios.get(BASE_URL, { params: filterBy })
+function query(queryOptions) {
+    return axios.get(BASE_URL, { params: queryOptions })
         .then(res => res.data)
 }
 
@@ -30,52 +26,19 @@ function remove(bugId) {
 }
 
 function save(bug) {
-    if (bug._id) {
-        return axios.put(BASE_URL + bug._id, bug)
-            .then(res => res.data)
-            .catch(err => {
-                console.log('err:', err)
-                throw err
-            })
-    } else {
-        return axios.post(BASE_URL, bug)
-            .then(res => res.data)
-            .catch(err => {
-                console.log('err:', err)
-                throw err
-            })
-    }
-}
+    const method = bug._id ? 'put' : 'post'
+    const bugId = bug._id || ''
 
-function _createBugs() {
-    let bugs = utilService.loadFromStorage(STORAGE_KEY)
-    if (bugs && bugs.length > 0) return
-
-    bugs = [
-        {
-            title: "Infinite Loop Detected",
-            severity: 4,
-            _id: "1NF1N1T3"
-        },
-        {
-            title: "Keyboard Not Found",
-            severity: 3,
-            _id: "K3YB0RD"
-        },
-        {
-            title: "404 Coffee Not Found",
-            severity: 2,
-            _id: "C0FF33"
-        },
-        {
-            title: "Unexpected Response",
-            severity: 1,
-            _id: "G0053"
-        }
-    ]
-    utilService.saveToStorage(STORAGE_KEY, bugs)
+    return axios[method](BASE_URL + bugId, bug)
+        .then(res => res.data)
 }
 
 function getDefaultFilter() {
-    return { txt: '', minSeverity: 0 }
+    return { txt: '', minSeverity: 0, labels: [], sortField: '', sortDir: 1 }
+}
+
+function getLabels() {
+    return [
+        'back', 'front', 'critical', 'fixed', 'in progress', 'stuck'
+    ]
 }
