@@ -55,3 +55,24 @@ content-type: application/json
     "severity": 4,
     "description": "Things be going well!"
 }
+
+### Fetch users list 
+
+get http://127.0.0.1:3030/api/user
+
+
+
+### Fetch user by id 
+
+get http://127.0.0.1:3030/api/user/u206
+
+### Create user
+
+post http://127.0.0.1:3030/api/auth/signup
+content-type: application/json
+
+{
+    "username": "Omer",
+    "fullname": "Omer dahan",
+    "password": "omer123"
+}

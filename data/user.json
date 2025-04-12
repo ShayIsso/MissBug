@@ -1,0 +1,74 @@
+[
+  {
+    "_id": "u201",
+    "username": "shay",
+    "fullname": "Shay Nisso",
+    "password": "shay123",
+    "isAdmin": true
+  },
+  {
+    "_id": "u202",
+    "username": "liat",
+    "fullname": "Liat Danon",
+    "password": "liat123"
+  },
+  {
+    "_id": "u203",
+    "username": "elior",
+    "fullname": "Elior Golan",
+    "password": "elior123"
+  },
+  {
+    "_id": "u204",
+    "username": "dana",
+    "fullname": "Dana Weiss",
+    "password": "dana123",
+    "isAdmin": true
+  },
+  {
+    "_id": "u205",
+    "username": "roi",
+    "fullname": "Roi Tamir",
+    "password": "roi123"
+  },
+  {
+    "_id": "u206",
+    "username": "noa",
+    "fullname": "Noa Levi",
+    "password": "noa123"
+  },
+  {
+    "_id": "u207",
+    "username": "omer",
+    "fullname": "Omer Avital",
+    "password": "omer123",
+    "isAdmin": false
+  },
+  {
+    "_id": "u208",
+    "username": "maya",
+    "fullname": "Maya Azulai",
+    "password": "maya123"
+  },
+  {
+    "_id": "phNQV",
+    "fullname": "Omer dahan",
+    "username": "Omer",
+    "password": "omer123",
+    "isAdmin": false
+  },
+  {
+    "_id": "g8WE8",
+    "fullname": "Omer dahan",
+    "username": "Omer",
+    "password": "omer123",
+    "isAdmin": false
+  },
+  {
+    "_id": "GaCWL",
+    "fullname": "shay biso",
+    "username": "shay",
+    "password": "Shay123",
+    "isAdmin": false
+  }
+]

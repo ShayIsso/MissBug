@@ -1,6 +1,6 @@
 const { useState, useEffect } = React
 
-import { bugService } from '../services/bug.service.local.js'
+import { bugService } from '../services/bug.service.remote.js'
 import { utilService } from '../services/util.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 

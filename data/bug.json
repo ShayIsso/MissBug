@@ -4,30 +4,26 @@
     "title": "Having a realy good day",
     "severity": 4,
     "description": "Things be going well!",
-    "labels": []
+    "labels": [],
+    "creator": {
+      "_id": "u201",
+      "fullname": "Shay Nisso"
+    }
   },
   {
     "_id": "def456",
     "title": "Login button not responsive",
     "description": "Clicking the login button does nothing",
-    "severity": 2,
+    "severity": 3,
     "createdAt": 1542110000000,
     "labels": [
       "need-CR",
       "dev-branch"
-    ]
-  },
-  {
-    "_id": "ghi789",
-    "title": "Error 500 when submitting form",
-    "description": "Server returns a 500 error on form submission",
-    "severity": 1,
-    "createdAt": 1542123456789,
-    "labels": [
-      "critical",
-      "need-CR",
-      "dev-branch"
-    ]
+    ],
+    "creator": {
+      "_id": "u202",
+      "fullname": "Liat Danon"
+    }
   },
   {
     "_id": "jkl012",
@@ -38,7 +34,11 @@
     "labels": [
       "need-CR",
       "dev-branch"
-    ]
+    ],
+    "creator": {
+      "_id": "u204",
+      "fullname": "Dana Weiss"
+    }
   },
   {
     "_id": "mno345",
@@ -49,7 +49,11 @@
     "labels": [
       "need-CR",
       "dev-branch"
-    ]
+    ],
+    "creator": {
+      "_id": "u205",
+      "fullname": "Roi Tamir"
+    }
   },
   {
     "_id": "pqr678",
@@ -60,7 +64,11 @@
     "labels": [
       "need-CR",
       "dev-branch"
-    ]
+    ],
+    "creator": {
+      "_id": "u206",
+      "fullname": "Noa Levi"
+    }
   },
   {
     "_id": "stu901",
@@ -72,7 +80,11 @@
       "critical",
       "need-CR",
       "dev-branch"
-    ]
+    ],
+    "creator": {
+      "_id": "u207",
+      "fullname": "Omer Avital"
+    }
   },
   {
     "_id": "vwx234",
@@ -84,6 +96,10 @@
       "critical",
       "need-CR",
       "dev-branch"
-    ]
+    ],
+    "creator": {
+      "_id": "u208",
+      "fullname": "Maya Azulai"
+    }
   }
 ]

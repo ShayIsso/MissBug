@@ -1,65 +1,98 @@
 [
-  {
+    {
       "_id": "EJyfl",
-      "title": "Cannot save new car",
-      "severity": 3,
-      "description": "",
-      "labels": ["need-CR", "dev-branch"]
-  },
-  {
+      "title": "Having a realy good day",
+      "severity": 4,
+      "description": "Things be going well!",
+      "labels": [],
+      "creator": {
+        "_id": "u201",
+        "fullname": "Shay Nisso"
+      }
+    },
+    {
       "_id": "def456",
       "title": "Login button not responsive",
       "description": "Clicking the login button does nothing",
       "severity": 2,
       "createdAt": 1542110000000,
-      "labels": ["need-CR", "dev-branch"]
-  },
-  {
+      "labels": ["need-CR", "dev-branch"],
+      "creator": {
+        "_id": "u202",
+        "fullname": "Liat Danon"
+      }
+    },
+    {
       "_id": "ghi789",
       "title": "Error 500 when submitting form",
       "description": "Server returns a 500 error on form submission",
       "severity": 1,
       "createdAt": 1542123456789,
-      "labels": ["critical", "need-CR", "dev-branch"]
-  },
-  {
+      "labels": ["critical", "need-CR", "dev-branch"],
+      "creator": {
+        "_id": "u203",
+        "fullname": "Elior Golan"
+      }
+    },
+    {
       "_id": "jkl012",
       "title": "Broken image links on homepage",
       "description": "Some images on the homepage are not loading",
       "severity": 3,
       "createdAt": 1542131111111,
-      "labels": ["need-CR", "dev-branch"]
-  },
-  {
+      "labels": ["need-CR", "dev-branch"],
+      "creator": {
+        "_id": "u204",
+        "fullname": "Dana Weiss"
+      }
+    },
+    {
       "_id": "mno345",
       "title": "Search function returns incorrect results",
       "description": "Search results do not match the entered keywords",
       "severity": 2,
       "createdAt": 1542142222222,
-      "labels": ["need-CR", "dev-branch"]
-  },
-  {
+      "labels": ["need-CR", "dev-branch"],
+      "creator": {
+        "_id": "u205",
+        "fullname": "Roi Tamir"
+      }
+    },
+    {
       "_id": "pqr678",
       "title": "Text overlaps on mobile view",
       "description": "Text is not properly aligned on smaller screens",
       "severity": 4,
       "createdAt": 1542153333333,
-      "labels": ["need-CR", "dev-branch"]
-  },
-  {
+      "labels": ["need-CR", "dev-branch"],
+      "creator": {
+        "_id": "u206",
+        "fullname": "Noa Levi"
+      }
+    },
+    {
       "_id": "stu901",
       "title": "Password reset email not sent",
       "description": "Users do not receive the password reset email",
       "severity": 1,
       "createdAt": 1542164444444,
-      "labels": ["critical", "need-CR", "dev-branch"]
-  },
-  {
+      "labels": ["critical", "need-CR", "dev-branch"],
+      "creator": {
+        "_id": "u207",
+        "fullname": "Omer Avital"
+      }
+    },
+    {
       "_id": "vwx234",
       "title": "App crashes on startup",
       "description": "Application does not load and crashes immediately",
-      "severity": 1,
+      "severity": 2,
       "createdAt": 1542175555555,
-      "labels": ["critical", "need-CR", "dev-branch"]
-  }
-]
+      "labels": ["critical", "need-CR", "dev-branch"],
+      "creator": {
+        "_id": "u208",
+        "fullname": "Maya Azulai"
+      }
+    }
+  ]
+  

@@ -204,3 +204,44 @@
 8.4.2025, 21:26:57 - INFO - Server ready at port 3030
 8.4.2025, 21:27:24 - INFO - Server ready at port 3030
 8.4.2025, 21:28:40 - INFO - Server ready at port 3030
+9.4.2025, 20:38:07 - INFO - Server ready at port 3030
+9.4.2025, 20:38:40 - INFO - Server ready at port 3030
+9.4.2025, 20:38:52 - INFO - Server ready at port 3030
+9.4.2025, 20:42:11 - INFO - Server ready at port 3030
+9.4.2025, 20:42:24 - INFO - Server ready at port 3030
+9.4.2025, 20:42:25 - INFO - Server ready at port 3030
+9.4.2025, 20:45:29 - INFO - Server ready at port 3030
+9.4.2025, 20:45:39 - INFO - Server ready at port 3030
+9.4.2025, 20:46:08 - INFO - Server ready at port 3030
+9.4.2025, 20:48:07 - INFO - Server ready at port 3030
+9.4.2025, 20:48:20 - INFO - Server ready at port 3030
+9.4.2025, 20:51:47 - INFO - Server ready at port 3030
+9.4.2025, 20:52:19 - INFO - Server ready at port 3030
+9.4.2025, 20:53:10 - INFO - Server ready at port 3030
+9.4.2025, 20:57:12 - INFO - Server ready at port 3030
+9.4.2025, 20:59:08 - INFO - Server ready at port 3030
+9.4.2025, 21:01:29 - INFO - Server ready at port 3030
+12.4.2025, 10:38:30 - INFO - Server ready at port 3030
+12.4.2025, 10:39:04 - ERROR - Cannot signup | Incomplete credentials
+12.4.2025, 10:39:43 - INFO - Server ready at port 3030
+12.4.2025, 10:40:31 - ERROR - Cannot signup | Incomplete credentials
+12.4.2025, 10:40:50 - ERROR - Cannot signup | Incomplete credentials
+12.4.2025, 10:41:29 - ERROR - Cannot signup | Incomplete credentials
+12.4.2025, 10:41:53 - INFO - Server ready at port 3030
+12.4.2025, 10:41:55 - ERROR - Cannot signup | ReferenceError: authService is not defined
+12.4.2025, 10:41:57 - INFO - Server ready at port 3030
+12.4.2025, 10:44:48 - INFO - Server ready at port 3030
+12.4.2025, 10:44:51 - INFO - Server ready at port 3030
+12.4.2025, 10:47:33 - INFO - Server ready at port 3030
+12.4.2025, 10:56:22 - INFO - Server ready at port 3030
+12.4.2025, 10:57:32 - INFO - Server ready at port 3030
+12.4.2025, 10:57:45 - INFO - Server ready at port 3030
+12.4.2025, 11:03:00 - INFO - Server ready at port 3030
+12.4.2025, 11:03:42 - INFO - Server ready at port 3030
+12.4.2025, 11:04:33 - INFO - Server ready at port 3030
+12.4.2025, 11:04:35 - INFO - Server ready at port 3030
+12.4.2025, 11:05:08 - INFO - Server ready at port 3030
+12.4.2025, 11:05:45 - ERROR - Cannot login | Invalid username or password
+12.4.2025, 11:05:47 - ERROR - Cannot login | Invalid username or password
+12.4.2025, 11:06:54 - INFO - Server ready at port 3030
+12.4.2025, 11:07:03 - ERROR - Cannot login | Invalid username or password

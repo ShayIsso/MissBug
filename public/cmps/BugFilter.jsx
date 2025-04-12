@@ -1,4 +1,4 @@
-import { bugService } from "../services/bug.service.local.js"
+import { bugService } from '../services/bug.service.remote.js'
 import { LabelChooser } from "./LabelChooser.jsx"
 
 const { useState, useEffect } = React
